@@ -10,6 +10,9 @@
 html, body {
   width: 100%;
   min-width: 100%;
+  overflow-x: hidden;
+  margin: 0;
+  padding: 0;
 }
 
 #root {
@@ -710,6 +713,54 @@ header {
   left: 0;
   right: 0;
   top: 0;
+}
+
+/* Remove any pseudo-elements that might create white lines */
+header::before,
+header::after {
+  display: none !important;
+}
+
+/* Remove any extra elements that might cause white lines */
+header * {
+  outline: none !important;
+}
+
+/* Full width header that extends to edges */
+header {
+  position: fixed !important;
+  top: 0 !important;
+  left: 0 !important;
+  right: 0 !important;
+  width: 100vw !important;
+  margin: 0 !important;
+  padding-left: 2.5rem !important;
+  padding-right: 2.5rem !important;
+  padding-top: 2rem !important;
+  padding-bottom: 2rem !important;
+  box-sizing: border-box !important;
+  z-index: 1000 !important;
+  border-left: none !important;
+  border-right: none !important;
+  border-top: none !important;
+  box-shadow: none !important;
+  outline: none !important;
+}
+
+/* Ensure header touches the very top */
+html {
+  margin-top: 0 !important;
+  padding-top: 0 !important;
+}
+
+body {
+  margin-top: 0 !important;
+  padding-top: 0 !important;
+}
+
+#root {
+  margin-top: 0 !important;
+  padding-top: 0 !important;
 }
 
 /* Form input styles */

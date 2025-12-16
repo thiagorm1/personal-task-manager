@@ -1,6 +1,6 @@
 import { useState } from 'react'
 
-function TaskList({ tasks, onUpdateTask, onDeleteTask, onToggleComplete }) {
+function TaskList({ tasks, onUpdateTask, onDeleteTask, onToggleComplete, onCreateSampleTasks }) {
   const [editingId, setEditingId] = useState(null)
   const [editTitle, setEditTitle] = useState('')
   const [editImportance, setEditImportance] = useState('medium')
@@ -59,6 +59,14 @@ function TaskList({ tasks, onUpdateTask, onDeleteTask, onToggleComplete }) {
         <p className="text-[#637588] dark:text-[#9cabba] text-lg text-center">
           Nenhuma tarefa encontrada. Adicione sua primeira tarefa!
         </p>
+        {onCreateSampleTasks && (
+          <button
+            onClick={onCreateSampleTasks}
+            className="px-4 py-2 bg-primary hover:bg-primary/90 text-white rounded-lg transition-colors text-sm mt-16"
+          >
+            Carregar Tarefas de Exemplo
+          </button>
+        )}
       </div>
     )
   }

@@ -109,8 +109,8 @@ function App() {
   }
 
   return (
-    <div className="min-h-screen w-full bg-background-light dark:bg-background-dark font-display text-[#111418] dark:text-white overflow-x-hidden flex flex-col" style={{margin: 0, padding: 0, width: '100vw', maxWidth: '100vw'}}>
-      <header className="flex items-center justify-between whitespace-nowrap border-b border-solid border-b-[#e5e7eb] dark:border-b-[#283039] px-10 py-8 bg-white/50 dark:bg-[#111418]/50 backdrop-blur-md sticky top-0 z-50" style={{width: '100vw', margin: 0, padding: '2rem 2.5rem', left: 0, right: 0}}>
+    <div className="min-h-screen w-full bg-background-light dark:bg-background-dark font-display text-[#111418] dark:text-white overflow-x-hidden flex flex-col" style={{margin: 0, padding: 0}}>
+      <header className="flex items-center justify-between whitespace-nowrap border-b border-solid border-b-[#e5e7eb] dark:border-b-[#283039] bg-white/50 dark:bg-[#111418]/50 backdrop-blur-md" style={{position: 'fixed', top: 0, left: 0, right: 0, width: '100vw', margin: 0, padding: '2rem 2.5rem', zIndex: 1000, boxSizing: 'border-box'}}>
         <div className="flex items-center gap-4">
           <div className="size-8 flex items-center justify-center text-primary">
             <span className="material-symbols-outlined !text-[32px]">check_circle</span>
@@ -124,7 +124,7 @@ function App() {
         </div>
       </header>
 
-      <main className="flex h-full grow flex-col items-center px-6 py-8 w-full">
+      <main className="flex h-full grow flex-col items-center px-6 py-8 w-full" style={{marginTop: '88px'}}>
         <div className="w-full max-w-4xl">
           <div className="flex flex-col items-center justify-center pb-8 pt-4">
             <h1 className="text-[#111418] dark:text-white tracking-light text-[32px] md:text-[40px] font-bold leading-tight text-center">
@@ -135,23 +135,14 @@ function App() {
             </p>
           </div>
 
-          {tasks.length === 0 && (
-            <div className="flex justify-center mb-6">
-              <button
-                onClick={createSampleTasks}
-                className="px-6 py-3 bg-primary hover:bg-primary/90 text-white rounded-lg transition-colors"
-              >
-                Carregar Tarefas de Exemplo
-              </button>
-            </div>
-          )}
-
+  
           <TaskForm onCreateTask={handleCreateTask} />
           <TaskList
             tasks={tasks}
             onUpdateTask={handleUpdateTask}
             onDeleteTask={handleDeleteTask}
             onToggleComplete={handleToggleComplete}
+            onCreateSampleTasks={createSampleTasks}
           />
         </div>
       </main>
