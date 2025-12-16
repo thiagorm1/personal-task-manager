@@ -1,9 +1,11 @@
 import { useState } from 'react'
+import TaskPopup from './TaskPopup'
 
 function TaskList({ tasks, onUpdateTask, onDeleteTask, onToggleComplete, onCreateSampleTasks }) {
   const [editingId, setEditingId] = useState(null)
   const [editTitle, setEditTitle] = useState('')
   const [editImportance, setEditImportance] = useState('medium')
+  const [selectedTask, setSelectedTask] = useState(null)
 
   const getImportanceColor = (importance) => {
     switch (importance) {
@@ -52,6 +54,14 @@ function TaskList({ tasks, onUpdateTask, onDeleteTask, onToggleComplete, onCreat
     }
   }
 
+  const openTaskPopup = (task) => {
+    setSelectedTask(task)
+  }
+
+  const closeTaskPopup = () => {
+    setSelectedTask(null)
+  }
+
   if (tasks.length === 0) {
     return (
       <div className="w-full flex flex-col items-center justify-center py-12">
@@ -72,7 +82,8 @@ function TaskList({ tasks, onUpdateTask, onDeleteTask, onToggleComplete, onCreat
   }
 
   return (
-    <div className="w-full flex flex-col gap-3">
+    <>
+      <div className="w-full flex flex-col gap-3">
       {tasks.map((task) => (
         <div
           key={task.id}
@@ -129,8 +140,8 @@ function TaskList({ tasks, onUpdateTask, onDeleteTask, onToggleComplete, onCreat
                       ? 'text-[#637588] dark:text-[#6b7280] line-through decoration-slate-400'
                       : ''
                   }`}
-                  onClick={() => !task.completed && startEdit(task)}
-                  title="Clique para editar"
+                  onClick={() => openTaskPopup(task)}
+                  title="Clique para ver detalhes"
                 >
                   {task.title}
                 </p>
@@ -177,7 +188,13 @@ function TaskList({ tasks, onUpdateTask, onDeleteTask, onToggleComplete, onCreat
           </div>
         </div>
       ))}
-    </div>
+      </div>
+
+      <TaskPopup
+        task={selectedTask}
+        onClose={closeTaskPopup}
+      />
+    </>
   )
 }
 
