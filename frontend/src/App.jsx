@@ -109,13 +109,13 @@ function App() {
   }
 
   return (
-    <div className="min-h-screen w-full bg-background-light dark:bg-background-dark font-display text-[#111418] dark:text-white overflow-x-hidden flex flex-col">
-      <header className="flex items-center justify-between whitespace-nowrap border-b border-solid border-b-[#e5e7eb] dark:border-b-[#283039] px-10 py-3 bg-white/50 dark:bg-[#111418]/50 backdrop-blur-md sticky top-0 z-50 w-full">
+    <div className="min-h-screen w-full bg-background-light dark:bg-background-dark font-display text-[#111418] dark:text-white overflow-x-hidden flex flex-col" style={{margin: 0, padding: 0, width: '100vw', maxWidth: '100vw'}}>
+      <header className="flex items-center justify-between whitespace-nowrap border-b border-solid border-b-[#e5e7eb] dark:border-b-[#283039] px-10 py-8 bg-white/50 dark:bg-[#111418]/50 backdrop-blur-md sticky top-0 z-50" style={{width: '100vw', margin: 0, padding: '2rem 2.5rem', left: 0, right: 0}}>
         <div className="flex items-center gap-4">
           <div className="size-8 flex items-center justify-center text-primary">
             <span className="material-symbols-outlined !text-[32px]">check_circle</span>
           </div>
-          <h2 className="text-[#111418] dark:text-white text-lg font-bold leading-tight tracking-[-0.015em]">Lista de Tarefas</h2>
+          <h2 className="text-[#111418] dark:text-white text-lg font-bold leading-tight tracking-[-0.015em]">Gerenciador de Tarefas Pessoais</h2>
         </div>
         <div className="flex items-center gap-4">
           <div className="size-8 rounded-full bg-slate-200 dark:bg-slate-700 overflow-hidden bg-cover bg-center"

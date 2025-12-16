@@ -20,7 +20,7 @@ html, body {
 
 body {
   font-family: 'Spline Sans', 'Noto Sans', sans-serif;
-  background-color: #f5f7f8;
+  background-color: #1a3a4a;
   color: #111418;
   overflow-x: hidden;
   min-height: 100vh;
@@ -39,7 +39,7 @@ body {
 
 /* Colors */
 .bg-background-light {
-  background-color: #f5f7f8;
+  background-color: #1a3a4a;
 }
 
 .bg-background-dark {
@@ -92,8 +92,8 @@ body {
   background-color: #f0f2f4;
 }
 
-.bg-\[\#f5f7f8\] {
-  background-color: #f5f7f8;
+.bg-\[\#1a3a4a\] {
+  background-color: #1a3a4a;
 }
 
 .bg-\[\#1b2127\] {
@@ -219,9 +219,14 @@ body {
   padding-right: 2.5rem;
 }
 
+.px-4 {
+  padding-left: 1rem;
+  padding-right: 1rem;
+}
+
 .py-3 {
-  padding-top: 0.75rem;
-  padding-bottom: 0.75rem;
+  padding-top: 1.5rem;
+  padding-bottom: 1.5rem;
 }
 
 .py-4 {
@@ -232,6 +237,11 @@ body {
 .py-8 {
   padding-top: 2rem;
   padding-bottom: 2rem;
+}
+
+.py-6 {
+  padding-top: 2.5rem;
+  padding-bottom: 2.5rem;
 }
 
 .py-12 {
@@ -673,6 +683,33 @@ input[type="checkbox"]:checked + .material-symbols-outlined {
 #__vite div {
   width: 100% !important;
   max-width: none !important;
+}
+
+/* Remove default margins and padding */
+html, body {
+  width: 100%;
+  min-width: 100%;
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden;
+}
+
+#root {
+  width: 100%;
+  min-width: 100%;
+  max-width: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+/* Remove browser default spacing */
+header {
+  margin: 0;
+  padding: 0;
+  position: relative;
+  left: 0;
+  right: 0;
+  top: 0;
 }
 
 /* Form input styles */
